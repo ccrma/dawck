@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="MNApa9" name="DAWck" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" defines="PIP_JUCE_EXAMPLES_DIRECTORY=L1VzZXJzL3N1bW1lcmtyaW5za3kvSlVDRS9leGFtcGxlcw==&#10;__USE_CHUCK_YACC__&#10;__DISABLE_HID__&#10;__ALTER_HID__"
+              companyName="ChucK Team" companyWebsite="https://chuck.stanford.edu/"
+              pluginFormats="buildAU,buildAUv3,buildVST3" pluginManufacturer="ChucK Team"
+              pluginName="ChucK" pluginDesc="ChucK audio programming in a DAW (aka DAWck)"
+              pluginManufacturerCode="Cktm" pluginCode="Ckdw" aaxIdentifier="edu.stanford.chuck.dawck"
+              pluginAUExportPrefix="dawckAU" lv2Uri="https://chuck.stanford.edu/dawck/plugin/0.0.1"
+              headerPath="../../subprojects/chuck/src/core/" version="0.0.1"
+              bundleIdentifier="edu.stanford.chuck.dawck">
+  <MAINGROUP id="eOVCaG" name="DAWck">
+    <GROUP id="{5AD2529B-6237-F513-0B77-3D5EE9CF9A4D}" name="Source">
+      <GROUP id="{E526190D-B07D-1453-D77E-4452E7EABB51}" name="chuck">
+        <GROUP id="{5781AD58-42AC-58BF-8E3F-76CDF89D5143}" name="lo">
+          <FILE id="rfol2f" name="address.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/address.c"/>
+          <FILE id="OGpUYj" name="blob.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/blob.c"/>
+          <FILE id="Y2q7zU" name="bundle.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/bundle.c"/>
+          <FILE id="YPV80E" name="config.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/config.h"/>
+          <FILE id="dO3Dyh" name="lo.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo.h"/>
+          <FILE id="bhHbiQ" name="lo_endian.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_endian.h"/>
+          <FILE id="hOeAs8" name="lo_errors.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_errors.h"/>
+          <FILE id="gPSkET" name="lo_internal.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_internal.h"/>
+          <FILE id="BBOqls" name="lo_lowlevel.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_lowlevel.h"/>
+          <FILE id="uxOe44" name="lo_macros.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_macros.h"/>
+          <FILE id="S2GAkV" name="lo_osc_types.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_osc_types.h"/>
+          <FILE id="BJrDLD" name="lo_throw.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_throw.h"/>
+          <FILE id="JyvB5t" name="lo_types.h" compile="0" resource="0" file="subprojects/chuck/src/core/lo/lo_types.h"/>
+          <FILE id="oUSGvN" name="lo_types_internal.h" compile="0" resource="0"
+                file="subprojects/chuck/src/core/lo/lo_types_internal.h"/>
+          <FILE id="cu5XjH" name="message.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/message.c"/>
+          <FILE id="nm3vR1" name="method.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/method.c"/>
+          <FILE id="nfgWIn" name="pattern_match.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/pattern_match.c"/>
+          <FILE id="YQe9JV" name="send.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/send.c"/>
+          <FILE id="P0Po9C" name="server.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/server.c"/>
+          <FILE id="pOGkN0" name="server_thread.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/server_thread.c"/>
+          <FILE id="OHB1x7" name="timetag.c" compile="1" resource="0" file="subprojects/chuck/src/core/lo/timetag.c"/>
+        </GROUP>
+        <GROUP id="{DBE5D772-7C7A-5472-A725-1D4A4D028291}" name="makefile.x">
+          <FILE id="gJV38u" name="makefile.alsa" compile="0" resource="1" file="subprojects/chuck/src/core/makefile.x/makefile.alsa"/>
+          <FILE id="tTGOD9" name="makefile.jack" compile="0" resource="1" file="subprojects/chuck/src/core/makefile.x/makefile.jack"/>
+          <FILE id="OVwO2Z" name="makefile.linux" compile="0" resource="1" file="subprojects/chuck/src/core/makefile.x/makefile.linux"/>
+          <FILE id="Xl03HX" name="makefile.mac" compile="0" resource="1" file="subprojects/chuck/src/core/makefile.x/makefile.mac"/>
+          <FILE id="ufWVzz" name="makefile.pulse" compile="0" resource="1" file="subprojects/chuck/src/core/makefile.x/makefile.pulse"/>
+          <FILE id="uPq31W" name="makefile.vanilla" compile="0" resource="1"
+                file="subprojects/chuck/src/core/makefile.x/makefile.vanilla"/>
+        </GROUP>
+        <FILE id="KoE4Qn" name="chuck.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck.cpp"/>
+        <FILE id="M38F1j" name="chuck.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck.h"/>
+        <FILE id="KYNFGk" name="chuck.lex" compile="0" resource="1" file="subprojects/chuck/src/core/chuck.lex"/>
+        <FILE id="ahAShP" name="chuck.y" compile="0" resource="1" file="subprojects/chuck/src/core/chuck.y"/>
+        <FILE id="EN0wYd" name="chuck_absyn.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_absyn.cpp"/>
+        <FILE id="dOpd6Z" name="chuck_absyn.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_absyn.h"/>
+        <FILE id="sObPIK" name="chuck_carrier.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/chuck_carrier.cpp"/>
+        <FILE id="sOxmnW" name="chuck_carrier.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_carrier.h"/>
+        <FILE id="Vhzh20" name="chuck_compile.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/chuck_compile.cpp"/>
+        <FILE id="nULTyM" name="chuck_compile.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_compile.h"/>
+        <FILE id="TpIrQJ" name="chuck_def.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_def.h"/>
+        <FILE id="JQACaf" name="chuck_dl.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_dl.cpp"/>
+        <FILE id="FPF9gs" name="chuck_dl.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_dl.h"/>
+        <FILE id="mcMG9K" name="chuck_emit.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_emit.cpp"/>
+        <FILE id="EjxuIW" name="chuck_emit.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_emit.h"/>
+        <FILE id="YKFOAc" name="chuck_errmsg.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/chuck_errmsg.cpp"/>
+        <FILE id="XRbWSC" name="chuck_errmsg.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_errmsg.h"/>
+        <FILE id="v3i8LF" name="chuck_frame.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_frame.cpp"/>
+        <FILE id="hk5Hom" name="chuck_frame.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_frame.h"/>
+        <FILE id="GExd5g" name="chuck_globals.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/chuck_globals.cpp"/>
+        <FILE id="IOTAlN" name="chuck_globals.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_globals.h"/>
+        <FILE id="W6RoYg" name="chuck_instr.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_instr.cpp"/>
+        <FILE id="TTJOmy" name="chuck_instr.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_instr.h"/>
+        <FILE id="WNPvAE" name="chuck_io.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_io.cpp"/>
+        <FILE id="aRCdAv" name="chuck_io.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_io.h"/>
+        <FILE id="nuzHrE" name="chuck_lang.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_lang.cpp"/>
+        <FILE id="RTYlg5" name="chuck_lang.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_lang.h"/>
+        <FILE id="BSwIxf" name="chuck_oo.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_oo.cpp"/>
+        <FILE id="wU5RNt" name="chuck_oo.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_oo.h"/>
+        <FILE id="gyui6K" name="chuck_otf.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_otf.cpp"/>
+        <FILE id="iKfLdu" name="chuck_otf.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_otf.h"/>
+        <FILE id="KxkfhC" name="chuck_parse.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_parse.cpp"/>
+        <FILE id="mxsRFK" name="chuck_parse.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_parse.h"/>
+        <FILE id="byj9iR" name="chuck_scan.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_scan.cpp"/>
+        <FILE id="qtIeNC" name="chuck_scan.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_scan.h"/>
+        <FILE id="R2Hv4x" name="chuck_shell.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_shell.cpp"/>
+        <FILE id="VjVoGE" name="chuck_shell.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_shell.h"/>
+        <FILE id="EckY3j" name="chuck_stats.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_stats.cpp"/>
+        <FILE id="AhoxQV" name="chuck_stats.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_stats.h"/>
+        <FILE id="HDBH2d" name="chuck_symbol.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/chuck_symbol.cpp"/>
+        <FILE id="zZ0FsI" name="chuck_symbol.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_symbol.h"/>
+        <FILE id="Fs0PUg" name="chuck_table.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_table.cpp"/>
+        <FILE id="EQzAvB" name="chuck_table.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_table.h"/>
+        <FILE id="Xzcs4v" name="chuck_type.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_type.cpp"/>
+        <FILE id="KeyxEi" name="chuck_type.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_type.h"/>
+        <FILE id="YSwIwl" name="chuck_ugen.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_ugen.cpp"/>
+        <FILE id="RuQYra" name="chuck_ugen.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_ugen.h"/>
+        <FILE id="UD7krM" name="chuck_vm.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_vm.cpp"/>
+        <FILE id="PQvuXt" name="chuck_vm.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_vm.h"/>
+        <FILE id="TFMnf9" name="chuck_yacc.c" compile="1" resource="0" file="subprojects/chuck/src/core/chuck_yacc.c"/>
+        <FILE id="UZKMdq" name="chuck_yacc.h" compile="0" resource="0" file="subprojects/chuck/src/core/chuck_yacc.h"/>
+        <FILE id="n8xm5K" name="dirent_win32.h" compile="0" resource="0" file="subprojects/chuck/src/core/dirent_win32.h"/>
+        <FILE id="p6kBjn" name="hidio_sdl.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/hidio_sdl.cpp"/>
+        <FILE id="Imkh6x" name="hidio_sdl.h" compile="0" resource="0" file="subprojects/chuck/src/core/hidio_sdl.h"/>
+        <FILE id="fDnOpJ" name="makefile" compile="0" resource="1" file="subprojects/chuck/src/core/makefile"/>
+        <FILE id="bMfOKh" name="midiio_rtmidi.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/midiio_rtmidi.cpp"/>
+        <FILE id="ugyeWf" name="midiio_rtmidi.h" compile="0" resource="0" file="subprojects/chuck/src/core/midiio_rtmidi.h"/>
+        <FILE id="bj0fnZ" name="rtmidi.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/rtmidi.cpp"/>
+        <FILE id="iICofa" name="rtmidi.h" compile="0" resource="0" file="subprojects/chuck/src/core/rtmidi.h"/>
+        <FILE id="k9HPyR" name="uana_extract.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/uana_extract.cpp"/>
+        <FILE id="Aso13f" name="uana_extract.h" compile="0" resource="0" file="subprojects/chuck/src/core/uana_extract.h"/>
+        <FILE id="RyKURN" name="uana_xform.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/uana_xform.cpp"/>
+        <FILE id="NOeHMr" name="uana_xform.h" compile="0" resource="0" file="subprojects/chuck/src/core/uana_xform.h"/>
+        <FILE id="RHHmzv" name="ugen_filter.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ugen_filter.cpp"/>
+        <FILE id="zFOWGJ" name="ugen_filter.h" compile="0" resource="0" file="subprojects/chuck/src/core/ugen_filter.h"/>
+        <FILE id="NEe6oi" name="ugen_osc.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ugen_osc.cpp"/>
+        <FILE id="IEwFb3" name="ugen_osc.h" compile="0" resource="0" file="subprojects/chuck/src/core/ugen_osc.h"/>
+        <FILE id="t2SV9f" name="ugen_stk.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ugen_stk.cpp"/>
+        <FILE id="xRGBFW" name="ugen_stk.h" compile="0" resource="0" file="subprojects/chuck/src/core/ugen_stk.h"/>
+        <FILE id="bpTI96" name="ugen_xxx.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ugen_xxx.cpp"/>
+        <FILE id="L8kGCG" name="ugen_xxx.h" compile="0" resource="0" file="subprojects/chuck/src/core/ugen_xxx.h"/>
+        <FILE id="yK2HIW" name="ulib_ai.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ulib_ai.cpp"/>
+        <FILE id="ugBlqm" name="ulib_ai.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_ai.h"/>
+        <FILE id="UiZlzb" name="ulib_doc.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ulib_doc.cpp"/>
+        <FILE id="SsgGnU" name="ulib_doc.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_doc.h"/>
+        <FILE id="ZMaZ3K" name="ulib_machine.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/ulib_machine.cpp"/>
+        <FILE id="tllzDE" name="ulib_machine.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_machine.h"/>
+        <FILE id="allkOy" name="ulib_math.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ulib_math.cpp"/>
+        <FILE id="A8thkB" name="ulib_math.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_math.h"/>
+        <FILE id="yATece" name="ulib_opsc.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ulib_opsc.cpp"/>
+        <FILE id="u1Jlsx" name="ulib_opsc.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_opsc.h"/>
+        <FILE id="pZjpg2" name="ulib_std.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/ulib_std.cpp"/>
+        <FILE id="R6MPOd" name="ulib_std.h" compile="0" resource="0" file="subprojects/chuck/src/core/ulib_std.h"/>
+        <FILE id="b6TRFG" name="util_buffers.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/util_buffers.cpp"/>
+        <FILE id="PqWaJC" name="util_buffers.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_buffers.h"/>
+        <FILE id="CDAbo2" name="util_console.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/util_console.cpp"/>
+        <FILE id="V2Y13Q" name="util_console.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_console.h"/>
+        <FILE id="HPmQlJ" name="util_hid.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_hid.cpp"/>
+        <FILE id="Q7mPeQ" name="util_hid.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_hid.h"/>
+        <FILE id="aujuND" name="util_math.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_math.cpp"/>
+        <FILE id="nJYFWs" name="util_math.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_math.h"/>
+        <FILE id="m4sMOH" name="util_network.c" compile="1" resource="0" file="subprojects/chuck/src/core/util_network.c"/>
+        <FILE id="Y4CqrY" name="util_network.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_network.h"/>
+        <FILE id="X5bk5c" name="util_opsc.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_opsc.cpp"/>
+        <FILE id="BAArg7" name="util_opsc.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_opsc.h"/>
+        <FILE id="qPKCkW" name="util_platforms.cpp" compile="1" resource="0"
+              file="subprojects/chuck/src/core/util_platforms.cpp"/>
+        <FILE id="HhCRLe" name="util_platforms.h" compile="0" resource="0"
+              file="subprojects/chuck/src/core/util_platforms.h"/>
+        <FILE id="qQehsV" name="util_raw.c" compile="1" resource="0" file="subprojects/chuck/src/core/util_raw.c"/>
+        <FILE id="cLLz6w" name="util_raw.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_raw.h"/>
+        <FILE id="xDlisq" name="util_serial.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_serial.cpp"/>
+        <FILE id="XgFsun" name="util_serial.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_serial.h"/>
+        <FILE id="pi4xDJ" name="util_sndfile.c" compile="1" resource="0" file="subprojects/chuck/src/core/util_sndfile.c"/>
+        <FILE id="I5rGS5" name="util_sndfile.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_sndfile.h"/>
+        <FILE id="B8ihXW" name="util_string.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_string.cpp"/>
+        <FILE id="WTnp8O" name="util_string.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_string.h"/>
+        <FILE id="AjgJfT" name="util_thread.cpp" compile="1" resource="0" file="subprojects/chuck/src/core/util_thread.cpp"/>
+        <FILE id="h8NUel" name="util_thread.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_thread.h"/>
+        <FILE id="Yj3ZeA" name="util_xforms.c" compile="1" resource="0" file="subprojects/chuck/src/core/util_xforms.c"/>
+        <FILE id="Vt0DQa" name="util_xforms.h" compile="0" resource="0" file="subprojects/chuck/src/core/util_xforms.h"/>
+      </GROUP>
+      <FILE id="ZTRucV" name="dawckPluginProcessor.cpp" compile="1" resource="0"
+            file="src/dawckPluginProcessor.cpp"/>
+      <FILE id="NDudVG" name="dawckPluginProcessor.h" compile="0" resource="0"
+            file="src/dawckPluginProcessor.h" xcodeResource="1"/>
+      <FILE id="sHtNow" name="dawckPluginEditor.cpp" compile="1" resource="0"
+            file="src/dawckPluginEditor.cpp"/>
+      <FILE id="bXHS20" name="dawckPluginEditor.h" compile="0" resource="0"
+            file="src/dawckPluginEditor.h" xcodeResource="1"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" xcodeValidArchs="arm64,arm64e,i386,x86_64">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="ChucK"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="ChucK"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

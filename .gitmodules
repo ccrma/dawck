@@ -1,0 +1,3 @@
+[submodule "subprojects/chuck"]
+	path = subprojects/chuck
+	url = https://github.com/ccrma/chuck.git
