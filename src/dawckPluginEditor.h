@@ -43,7 +43,8 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     DAWckAudioProcesser& audioProcessor;
-    
+    void openButtonClicked();
+    juce::TextButton openButton;
     juce::Slider gainSlider;
     juce::Slider rotary1;
     juce::Label pitchLabel;

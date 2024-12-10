@@ -20,17 +20,20 @@
 #include "dawckPluginProcessor.h"
 #include "dawckPluginEditor.h"
 #include "BinaryData.h"
-
+using namespace juce;
 
 
 
 //==============================================================================
 DAWckAudioProcesserEditor::DAWckAudioProcesserEditor (DAWckAudioProcesser& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+    : AudioProcessorEditor (&p), audioProcessor (p), openButton("Load ChucK file(s)")
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+    openButton.onClick = [this] { openButtonClicked(); };
+    addAndMakeVisible(&openButton);
+    
     //sliderAttach - new AudioProcessorValueTreeState::SliderAttachment (audioProcessor.treeState, GAIN_ID, gainSlider);
     gainSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
     gainSlider.setRange(-12.0, 12.0);
@@ -98,6 +101,32 @@ void DAWckAudioProcesserEditor::paint (juce::Graphics& g)
     // g.drawFittedText ("=>DAW", getLocalBounds(), juce::Justification::bottomRight, 1);
 }
 
+void DAWckAudioProcesserEditor::openButtonClicked()
+{
+    DBG("clicked");
+    // create a file chooser
+    FileChooser chooser( "Choose one or more ChucK (.ck) file",  File::getSpecialLocation(File::userDesktopDirectory), "*.ck", true);
+
+    // open file dialog
+    if( chooser.browseForFileToOpen() )
+    {
+        // make a REMOVE_ALL message to send to chuck
+        Chuck_Msg * msg = new Chuck_Msg;
+        msg->type = CK_MSG_REMOVEALL;
+        // clear chuck VM -- this will stop all chuck programs currently running
+        audioProcessor.chuck()->vm()->queue_msg( msg );
+
+        // this will hold the result
+        File results;
+        // what did the user choose?
+        results = chooser.getResult();
+        // the absolute path
+        std::string absolutePath = results.getFullPathName().toStdString();
+        // tell chuck to compile and run
+        audioProcessor.chuck()->compileFile( absolutePath );
+    }
+}
+
 void DAWckAudioProcesserEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
@@ -112,6 +141,7 @@ void DAWckAudioProcesserEditor::resized()
     int sliderHeight = 200; // Height of the slider
     int xPosition = (getWidth() - sliderWidth) / 2; // Center horizontally
     int yPosition = 50; // Position 20 pixels from the top
+    openButton.setBounds(10, 10, getWidth()-20, 30);
 
     gainSlider.setBounds(static_cast<int>(xPosition), static_cast<int>(yPosition), static_cast<int>(sliderWidth), static_cast<int>(sliderHeight));
 }

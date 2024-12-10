@@ -68,7 +68,11 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-public: // our own functions
+public: // dawck-specific functions
+    // get pointer to the ChucK system associated with this processor
+    ChucK * chuck();
+
+public: // ui functions
     void updateFloats( float v, float v1 );
     
 private:

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="MNApa9" name="DAWck" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" defines="PIP_JUCE_EXAMPLES_DIRECTORY=L1VzZXJzL3N1bW1lcmtyaW5za3kvSlVDRS9leGFtcGxlcw==&#10;__USE_CHUCK_YACC__&#10;__DISABLE_HID__&#10;__ALTER_HID__"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" defines="PIP_JUCE_EXAMPLES_DIRECTORY=L1VzZXJzL3N1bW1lcmtyaW5za3kvSlVDRS9leGFtcGxlcw==&#10;__USE_CHUCK_YACC__&#10;__DISABLE_HID__&#10;__ALTER_HID__&#10;JUCE_MODAL_LOOPS_PERMITTED=1"
               companyName="ChucK Team" companyWebsite="https://chuck.stanford.edu/"
-              pluginFormats="buildAU,buildAUv3,buildLV2,buildStandalone,buildVST3"
-              pluginManufacturer="ChucK Team" pluginName="ChucK" pluginDesc="ChucK audio programming in a DAW (aka DAWck)"
+              pluginFormats="buildAU,buildStandalone,buildVST3" pluginManufacturer="ChucK Team"
+              pluginName="ChucK" pluginDesc="ChucK audio programming in a DAW (aka DAWck)"
               pluginManufacturerCode="Cktm" pluginCode="Ckdw" aaxIdentifier="edu.stanford.chuck.dawck"
               pluginAUExportPrefix="dawckAU" lv2Uri="https://chuck.stanford.edu/dawck/plugin/0.0.1"
               headerPath="../../subprojects/chuck/src/core/" version="0.0.1"

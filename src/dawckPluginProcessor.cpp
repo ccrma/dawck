@@ -415,6 +415,11 @@ void DAWckAudioProcesser::setStateInformation (const void* data, int sizeInBytes
    // gain->setValueNotifyingHost (juce::MemoryInputStream (data, static_cast<size_t> (sizeInBytes), false).readFloat());
 }
 
+ChucK * DAWckAudioProcesser::chuck()
+{
+    return m_chuck;
+}
+
 void DAWckAudioProcesser::updateFloats( float v, float v1 )
 {
     m_chuck->globals()->setGlobalFloat( "INPUT_FREQUENCY", v );
