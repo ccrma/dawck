@@ -55,7 +55,7 @@ DAWckAudioProcesser::DAWckAudioProcesser()
 {
     // Optionally, add a sub-tree to store UI state if needed
     treeState.state.addChild({ "uiState", { { "width", 400 }, { "height", 300 } }, {} }, -1, nullptr);
-  
+
     // create a new chuck instances; this includes compiler, VM, audio engine
     m_chuck = new ChucK();
 
@@ -68,7 +68,7 @@ DAWckAudioProcesser::DAWckAudioProcesser()
     // set hint so internally can advise things like async data writes etc.
     m_chuck->setParam( CHUCK_PARAM_IS_REALTIME_AUDIO_HINT, FALSE );
     // FYI the sample rate is set in prepareToPlay()
-    
+
     // TODO: disable chugin-loading OR set chugin paths
 
     // turn on logging to see what ChucK is up to; higher == more info
@@ -229,7 +229,7 @@ void DAWckAudioProcesser::prepareToPlay( double sampleRate, int samplesPerBlock 
     // set sample rate; this can be called repeated; setting this parameter
     // will automatically trigger chuck to update its relevant internal state
     m_chuck->setParam( CHUCK_PARAM_SAMPLE_RATE, (t_CKINT)(sampleRate+0.5) );
-    
+
     // allocate buffers, if needed
     if( !m_outputBuffer || m_bufferSize != samplesPerBlock )
     {
@@ -344,14 +344,14 @@ void DAWckAudioProcesser::processBlock( juce::AudioBuffer<float> & buffer, juce:
     t_CKUINT N = buffer.getNumSamples();
     // get number of channels
     t_CKUINT channels = buffer.getNumChannels();
-   
+
     // check # of chanels
     if( channels == 2 )
     {
         // pointer to input buffer
         const float * inputLeft = buffer.getReadPointer(0);
         const float * inputRight = buffer.getReadPointer(1);
-        
+    
         // interleave into our own input buffer
         for( t_CKINT i = 0; i < N; i++ )
         {
@@ -359,14 +359,14 @@ void DAWckAudioProcesser::processBlock( juce::AudioBuffer<float> & buffer, juce:
             m_inputBuffer[i*2] = inputLeft[i];
             m_inputBuffer[i*2+1] = inputRight[i];
         }
-        
+
         // tell chuck compute the next block of audio
         m_chuck->run( m_inputBuffer, m_outputBuffer, N );
-        
+
         // pointer to JUCE's output buffers
         float * outLeft = buffer.getWritePointer(0);
         float * outRight = buffer.getWritePointer(1);
-        
+
         // de-interleave into our own output buffer into JUCE output buffer
         for( t_CKINT i = 0; i < N; i++ )
         {

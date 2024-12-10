@@ -75,12 +75,12 @@ public: // dawck-specific functions
 
 public: // ui functions
     void updateFloats( float v, float v1 );
-    
-    
+
+
 private:
     //==============================================================================
     juce::AudioProcessorValueTreeState treeState;
-  
+
     // our ChucK instance
     ChucK * m_chuck = NULL;
     // audio input buffer

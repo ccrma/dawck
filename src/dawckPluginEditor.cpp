@@ -54,6 +54,7 @@ DAWckAudioProcesserEditor::DAWckAudioProcesserEditor (DAWckAudioProcesser& p)
     rotary1.setColour(juce::Slider::textBoxTextColourId, juce::Colours::black);
     // Attach the slider to the treeState parameter
     // Attach the slider to the treeState parameter via the getter
+    // TODO: this appears to be causing a crash on cleanup, from within the attachment's destructor
     rotary1Attachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
         audioProcessor.getTreeState(), "rotary1", rotary1);
     /* rotaryKnob.setSliderStyle(juce::Slider::Rotary); // Circular knob
