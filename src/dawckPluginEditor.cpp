@@ -110,11 +110,8 @@ void DAWckAudioProcesserEditor::openButtonClicked()
     // open file dialog
     if( chooser.browseForFileToOpen() )
     {
-        // make a REMOVE_ALL message to send to chuck
-        Chuck_Msg * msg = new Chuck_Msg;
-        msg->type = CK_MSG_REMOVEALL;
-        // clear chuck VM -- this will stop all chuck programs currently running
-        audioProcessor.chuck()->vm()->queue_msg( msg );
+        // remove all shreds currently in VM (thread-safe)
+        audioProcessor.chuck()->removeAllShreds();
 
         // this will hold the result
         File results;

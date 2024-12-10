@@ -250,8 +250,8 @@ void DAWckAudioProcesser::prepareToPlay( double sampleRate, int samplesPerBlock 
 
     // start ChucK VM and synthesis engine
     m_chuck->start();
-    // clear VM (should be on on sample rate update)
-    m_chuck->compileCode( "Machine.removeAllShreds();", "", 1 );
+    // clear VM (since we are updating sample rate)
+    m_chuck->removeAllShreds();
 
     // test run some code
     //m_chuck->compileCode( "adc => LPF lpf => dac; 400 => lpf.freq; while( true ) { 1::second => now; }", "", 1 );
