@@ -41,9 +41,21 @@ DAWckAudioProcesser::DAWckAudioProcesser()
                        //#endif
                          .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                        //#endif
+                     ),
+                     treeState(*this, nullptr, "state",
+                 {
+                     std::make_unique<juce::AudioParameterFloat>(
+                         juce::ParameterID{ "rotary1", 1 },   // Parameter ID and version
+                         "Rotary 1",                         // Parameter name
+                         juce::NormalisableRange<float>(0.0f, 1.0f), // Range
+                         0.5f                                // Default value
                      )
+                 })
 #endif
 {
+    // Optionally, add a sub-tree to store UI state if needed
+    treeState.state.addChild({ "uiState", { { "width", 400 }, { "height", 300 } }, {} }, -1, nullptr);
+  
     // create a new chuck instances; this includes compiler, VM, audio engine
     m_chuck = new ChucK();
 
@@ -86,7 +98,6 @@ const juce::String DAWckAudioProcesser::getName() const
 {
     return JucePlugin_Name;
 }
-
 
 
 

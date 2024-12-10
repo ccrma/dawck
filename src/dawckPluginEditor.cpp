@@ -52,6 +52,10 @@ DAWckAudioProcesserEditor::DAWckAudioProcesserEditor (DAWckAudioProcesser& p)
     rotary1.setRange(0.0, 1.0, 0.01); // Range from 0 to 1 with a step size of 0.01
     rotary1.onValueChange = [this]{ audioProcessor.updateFloats( gainSlider.getValue(), rotary1.getValue() ); };
     rotary1.setColour(juce::Slider::textBoxTextColourId, juce::Colours::black);
+    // Attach the slider to the treeState parameter
+    // Attach the slider to the treeState parameter via the getter
+    rotary1Attachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.getTreeState(), "rotary1", rotary1);
     /* rotaryKnob.setSliderStyle(juce::Slider::Rotary); // Circular knob
     rotaryKnob.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20); // Optional textbox
     rotaryKnob.setRange(0.0, 2.0 * juce::MathConstants<double>::pi, 0.01); // Set range (0 to 2π radians)
