@@ -77,10 +77,14 @@ DAWckAudioProcesserEditor::DAWckAudioProcesserEditor (DAWckAudioProcesser& p)
     mixLabel.attachToComponent(&rotary1, false); // Attach label to the slider (below)
     addAndMakeVisible(mixLabel);
     mixLabel.setColour(juce::Label::textColourId, juce::Colours::black);
+    // Start the timer to poll ChucK for updates
+    startTimerHz(30); // Poll 30 times per second
 }
 
 DAWckAudioProcesserEditor::~DAWckAudioProcesserEditor()
 {
+    stopTimer();
+    rotary1Attachment.reset();
 }
 
 //==============================================================================
@@ -146,6 +150,19 @@ void DAWckAudioProcesserEditor::resized()
     openButton.setBounds(10, 10, getWidth()-20, 30);
 
     gainSlider.setBounds(static_cast<int>(xPosition), static_cast<int>(yPosition), static_cast<int>(sliderWidth), static_cast<int>(sliderHeight));
+}
+
+//write chuck changes to rotary
+void DAWckAudioProcesserEditor::timerCallback()
+{
+    // Get the updated value from ChucK
+    float chuckValue = audioProcessor.getGlobalFloat("INPUT_FREQUENCY1");
+
+    // Update the rotary1 slider if needed
+    if (rotary1.getValue() != chuckValue)
+    {
+        rotary1.setValue(chuckValue, juce::dontSendNotification);
+    }
 }
 
 //void DAWckAudioProcesserEditor::sliderValueChanged(juce::Slider *slider)

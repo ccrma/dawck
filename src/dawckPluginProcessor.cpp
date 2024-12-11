@@ -437,6 +437,17 @@ void DAWckAudioProcesser::updateFloats( float v, float v1 )
     m_chuck->globals()->setGlobalFloat( "INPUT_FREQUENCY1", v1 );
 }
 
+//new
+float DAWckAudioProcesser::getGlobalFloat(const std::string& variableName) const
+{
+    if (m_chuck && m_chuck->globals())
+    {
+        return static_cast<float>(m_chuck->globals()->get_global_float_value(variableName));
+    }
+    return 0.0f; // Default fallback value
+}
+
+
 //==============================================================================
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()

@@ -25,7 +25,9 @@
 
 
 //==============================================================================
-class DAWckAudioProcesserEditor  : public juce::AudioProcessorEditor
+class DAWckAudioProcesserEditor  : public juce::AudioProcessorEditor,
+//new
+                                    public juce::Timer // Add Timer
 {
 public:
     DAWckAudioProcesserEditor (DAWckAudioProcesser&);
@@ -34,6 +36,10 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    
+    //new
+    // Timer callback
+    void timerCallback() override;
     //void sliderValueChanged(juce::Slider *slider);
     //void sliderValueChanged(juce::Slider *rotary);
     

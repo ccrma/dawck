@@ -68,6 +68,9 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     juce::AudioProcessorValueTreeState& getTreeState() { return treeState; }
+    //new
+    float getGlobalFloat(const std::string& variableName) const;
+
 
 public: // dawck-specific functions
     // get pointer to the ChucK system associated with this processor
