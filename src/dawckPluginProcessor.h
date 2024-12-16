@@ -78,7 +78,13 @@ public: // dawck-specific functions
 
 public: // ui functions
     void updateFloats( float v, float v1 );
-
+    double getCurrentBPM() const { return currentBPM; } // Getter for BPM
+    double getCurrentPPQPosition() const { return currentPPQPosition; }
+    double getCurrentTimeInSeconds() const { return currentTimeInSeconds; }
+    int getTimeSignatureNumerator() const { return timeSignatureNumerator; }
+    int getTimeSignatureDenominator() const { return timeSignatureDenominator; }
+    bool isTransportPlaying() const { return m_isTransportPlaying; }
+    
 
 private:
     //==============================================================================
@@ -92,6 +98,14 @@ private:
     SAMPLE * m_outputBuffer = NULL;
     // our audio buffer size
     t_CKINT m_bufferSize = 0;
+    
+    void updateBPM();
+    double currentBPM = 120.0; //default BPM
+    double currentPPQPosition = 0.0;          // Playhead position in PPQ
+    double currentTimeInSeconds = 0.0;        // Playhead position in seconds
+    int timeSignatureNumerator = 4;           // Default time signature numerator
+    int timeSignatureDenominator = 4;         // Default time signature denominator
+    bool m_isTransportPlaying = false;          // Transport state
 
     //==============================================================================
     // last frequency

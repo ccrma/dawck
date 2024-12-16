@@ -57,6 +57,10 @@ private:
     juce::Label pitchLabel;
     juce::Label mixLabel;
     juce::Image backgroundImage; // Background image
+    juce::Label bpmLabel; // Declare the BPM label
+    juce::Label playheadPositionLabel;
+    juce::Label timeSignatureLabel;
+    juce::Label transportStateLabel;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DAWckAudioProcesserEditor)
 };

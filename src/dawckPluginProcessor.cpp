@@ -226,6 +226,9 @@ void DAWckAudioProcesser::changeProgramName( int index, const juce::String & new
 //=============================================================================
 void DAWckAudioProcesser::prepareToPlay( double sampleRate, int samplesPerBlock )
 {
+    //update BPM from host DAW
+    updateBPM();
+    
     // set sample rate; this can be called repeated; setting this parameter
     // will automatically trigger chuck to update its relevant internal state
     m_chuck->setParam( CHUCK_PARAM_SAMPLE_RATE, (t_CKINT)(sampleRate+0.5) );
@@ -339,6 +342,8 @@ void DAWckAudioProcesser::processBlock( juce::AudioBuffer<float> & buffer, juce:
     // t_CKFLOAT f = m_chuck->globals()->get_global_float_value( "g_value1" );
     // set a global variable value in chuck
     // m_chuck->globals()->setGlobalFloat( "g_value2", 5 );
+    //update BPM from host DAW
+    updateBPM();
 
     // get number of sample frames
     t_CKUINT N = buffer.getNumSamples();
@@ -437,7 +442,7 @@ void DAWckAudioProcesser::updateFloats( float v, float v1 )
     m_chuck->globals()->setGlobalFloat( "INPUT_FREQUENCY1", v1 );
 }
 
-//new
+//new for automation from chuck to DAW rotary knob position
 float DAWckAudioProcesser::getGlobalFloat(const std::string& variableName) const
 {
     if (m_chuck && m_chuck->globals())
@@ -447,6 +452,32 @@ float DAWckAudioProcesser::getGlobalFloat(const std::string& variableName) const
     return 0.0f; // Default fallback value
 }
 
+//update BPM
+void DAWckAudioProcesser::updateBPM()
+{
+    if (auto* playHead = getPlayHead())
+    {
+        juce::AudioPlayHead::CurrentPositionInfo info;
+
+        if (playHead->getCurrentPosition(info))
+        {
+            // Update BPM
+            if (info.bpm > 0.0)
+                currentBPM = info.bpm;
+
+            // Update playhead position
+            currentPPQPosition = info.ppqPosition;
+            currentTimeInSeconds = info.timeInSeconds;
+
+            // Update time signature
+            timeSignatureNumerator = info.timeSigNumerator;
+            timeSignatureDenominator = info.timeSigDenominator;
+
+            // Update transport state
+            m_isTransportPlaying = info.isPlaying;
+        }
+    }
+}
 
 //==============================================================================
 // This creates new instances of the plugin..

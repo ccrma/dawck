@@ -77,6 +77,35 @@ DAWckAudioProcesserEditor::DAWckAudioProcesserEditor (DAWckAudioProcesser& p)
     mixLabel.attachToComponent(&rotary1, false); // Attach label to the slider (below)
     addAndMakeVisible(mixLabel);
     mixLabel.setColour(juce::Label::textColourId, juce::Colours::black);
+    
+    // Configure bpmLabel
+    bpmLabel.setText("BPM: --", juce::dontSendNotification); // Default text
+    bpmLabel.setFont(juce::Font(16.0f));
+    bpmLabel.setJustificationType(juce::Justification::bottomRight);
+    bpmLabel.setColour(juce::Label::textColourId, juce::Colours::white);
+    addAndMakeVisible(bpmLabel); // Add to the editor
+    
+    // Playhead Position Label
+    playheadPositionLabel.setText("Position: --", juce::dontSendNotification);
+    playheadPositionLabel.setFont(juce::Font(16.0f));
+    playheadPositionLabel.setJustificationType(juce::Justification::bottomRight);
+    playheadPositionLabel.setColour(juce::Label::textColourId, juce::Colours::white);
+    addAndMakeVisible(playheadPositionLabel);
+
+    // Time Signature Label
+    timeSignatureLabel.setText("Time Signature: --", juce::dontSendNotification);
+    timeSignatureLabel.setFont(juce::Font(16.0f));
+    timeSignatureLabel.setJustificationType(juce::Justification::bottomRight);
+    timeSignatureLabel.setColour(juce::Label::textColourId, juce::Colours::white);
+    addAndMakeVisible(timeSignatureLabel);
+
+    // Transport State Label
+    transportStateLabel.setText("Transport: Stopped", juce::dontSendNotification);
+    transportStateLabel.setFont(juce::Font(16.0f));
+    transportStateLabel.setJustificationType(juce::Justification::bottomRight);
+    transportStateLabel.setColour(juce::Label::textColourId, juce::Colours::white);
+    addAndMakeVisible(transportStateLabel);
+   
     // Start the timer to poll ChucK for updates
     startTimerHz(30); // Poll 30 times per second
 }
@@ -90,6 +119,7 @@ DAWckAudioProcesserEditor::~DAWckAudioProcesserEditor()
 //==============================================================================
 void DAWckAudioProcesserEditor::paint (juce::Graphics& g)
 {
+    g.fillAll (juce::Colours::black); // Background color
     if (backgroundImage.isValid())
     {
         // Draw the background image
@@ -148,7 +178,10 @@ void DAWckAudioProcesserEditor::resized()
     int xPosition = (getWidth() - sliderWidth) / 2; // Center horizontally
     int yPosition = 50; // Position 20 pixels from the top
     openButton.setBounds(10, 10, getWidth()-20, 30);
-
+    bpmLabel.setBounds (getLocalBounds().reduced(20));
+    playheadPositionLabel.setBounds(10, 50, getWidth() - 20, 30);
+    timeSignatureLabel.setBounds(10, 90, getWidth() - 20, 30);
+    transportStateLabel.setBounds(10, 130, getWidth() - 20, 30);
     gainSlider.setBounds(static_cast<int>(xPosition), static_cast<int>(yPosition), static_cast<int>(sliderWidth), static_cast<int>(sliderHeight));
 }
 
@@ -163,6 +196,21 @@ void DAWckAudioProcesserEditor::timerCallback()
     {
         rotary1.setValue(chuckValue, juce::dontSendNotification);
     }
+    
+    double bpm = audioProcessor.getCurrentBPM();
+    bpmLabel.setText("BPM: " + juce::String(bpm), juce::dontSendNotification);
+    
+    playheadPositionLabel.setText("Position: " + juce::String(audioProcessor.getCurrentPPQPosition(), 2)
+        + " PPQ / " + juce::String(audioProcessor.getCurrentTimeInSeconds(), 2) + " sec",
+        juce::dontSendNotification);
+
+    timeSignatureLabel.setText("Time Signature: " 
+        + juce::String(audioProcessor.getTimeSignatureNumerator()) + "/"
+        + juce::String(audioProcessor.getTimeSignatureDenominator()), 
+        juce::dontSendNotification);
+
+    transportStateLabel.setText("Transport: " + juce::String(audioProcessor.isTransportPlaying() ? "Playing" : "Stopped"),
+        juce::dontSendNotification);
 }
 
 //void DAWckAudioProcesserEditor::sliderValueChanged(juce::Slider *slider)
